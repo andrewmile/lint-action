@@ -25,9 +25,11 @@ jobs:
               run: composer install --no-interaction --no-suggest --ignore-platform-reqs
 
             - name: PHPCS lint
-              uses: chekalsky/phpcs-action@v1
+              uses: thenabeel/action-phpcs@v8
               with:
-                phpcs_bin_path: './vendor/bin/phpcs'
+                files: "**.php"
+                phpcs_path: './vendor/bin/phpcs'
+                standard: .phpcs.xml.dist
 
     tlint:
         name: TLint
